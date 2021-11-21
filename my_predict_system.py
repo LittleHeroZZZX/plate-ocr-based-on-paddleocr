@@ -21,6 +21,7 @@ sys.path.append(os.path.abspath(os.path.join(__dir__, '../..')))
 os.environ["FLAGS_allocator_strategy"] = 'auto_growth'
 
 import cv2
+import re
 import copy
 import numpy as np
 import time
@@ -122,6 +123,13 @@ class TextSystem(object):
                 filter_rec_res.append(rec_reuslt)
         #return filter_boxes, filter_rec_res
         return filter_rec_res
+    def numberOCR(self, img):
+        res = ''
+        result = self(img)
+        for line in result:
+            res+=(line[0])
+        res = re.sub(u"([^\u0041-\u005a\u0061-\u007a\u0030-\u0039])", "", res)##只保留数字字母
+        return res    
 
 
 def sorted_boxes(dt_boxes):
@@ -150,7 +158,7 @@ def sorted_boxes(dt_boxes):
 def ocr(ocr_sys, img):
     # img = utility.resize_img(img, 640)
     # img = utility.padding_img(img, [640,640])
-    img = cv2.resize(img,(640,320))
+    img = cv2.resize(img,(640,640))
     return ocr_sys(img)
 
 
@@ -181,8 +189,8 @@ def main(args):
 
 if __name__ == "__main__":
     #main(utility.parse_args()
-    img_file = "/home/zx/图片/imgs/1.jpg"
+    img_file = "/home/zx/图片/xemay/1xemay238.jpg"
     ocr_sys = TextSystem("config.json")
     img = cv2.imread(img_file)
-    print(ocr(ocr_sys, img))
+    print(ocr_sys.numberOCR(img))
 

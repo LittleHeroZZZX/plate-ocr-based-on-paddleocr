@@ -151,7 +151,7 @@ class TextDetector(object):
             dt_boxes_new.append(box)
         dt_boxes = np.array(dt_boxes_new)
         return dt_boxes
-
+    
     def __call__(self, img):
         ori_im = img.copy()
         data = {'image': img}
