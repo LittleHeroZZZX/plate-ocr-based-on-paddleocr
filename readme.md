@@ -3,7 +3,7 @@
 * python = 3.8.12
 
 * opencv-python = 4.5.3.56
-* onnxruntime-gpu = 2.1.3
+* onnxruntime-gpu = 1.9.0
 
 # 如何使用
 
