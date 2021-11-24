@@ -7,8 +7,8 @@
 
 # 如何使用
 
-* 克隆这个项目```git clone  https://github.com/LitttleHeroZZZX/plate-ocr-based-on-paddleocr```
-* 修改`predict_system.py`中第184行图片文件的目录，运行后控制台将会输出ocr结果。
+* 克隆这个项目```git clone  https://github.com/LitttleHeroZZZX/plate-ocr-based-on-paddleocr.git```
+* 修改`predict_system.py`中第192行图片文件的目录，运行后控制台将会输出ocr结果。
 
 # API接口
 
